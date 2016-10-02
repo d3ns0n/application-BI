@@ -6,7 +6,9 @@ import sys
 rotation_step_enc = -3 # rotation step for encrypting messages
 
 def rot(rotation_step, letter):
-    origin_alphabet = lc + uc 
+    origin_alphabet = lc + uc
+    if letter not in origin_alphabet:
+        return letter 
     rotated_alphabet = lc[rotation_step:] + lc[:rotation_step] + uc[rotation_step:] + uc[:rotation_step] # create rotated alphabet
     index = origin_alphabet.index(letter) # determine index of letter in alphabet
     return rotated_alphabet[index] # return letter at index in rotated alphabet

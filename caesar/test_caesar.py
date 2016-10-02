@@ -7,6 +7,8 @@ class TestStringMethods(unittest.TestCase):
         rotation_step = -3
         self.assertEqual(caesar.rot(rotation_step, 'D'), 'A')
         self.assertEqual(caesar.rot(rotation_step, 'C'), 'Z')
+        self.assertEqual(caesar.rot(rotation_step, '!'), '!')
+        self.assertEqual(caesar.rot(rotation_step, ','), ',')
         
     def test_encrypt(self):
         self.assertEqual(caesar.encrypt('HELLO'), 'EBIIL')
