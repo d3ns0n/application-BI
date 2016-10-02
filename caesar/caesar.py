@@ -17,13 +17,13 @@ def rot(rotation_step, letter):
 def encrypt(message):
     encrypted_message = ''
     for letter in message:
-        encrypted_message += rot(rotation_step_enc, letter)
+        encrypted_message += rot(rotation_step_enc, letter) # rotate to encrypt message
     return encrypted_message
     
 def decrypt(message):
     decrypted_message = ''
     for letter in message:
-        decrypted_message += rot(-rotation_step_enc, letter)
+        decrypted_message += rot(-rotation_step_enc, letter) # rotate in opposite direction for decryption
     return decrypted_message
     
 def print_usage():
@@ -33,18 +33,18 @@ def print_usage():
     print('Example: caesar.py encrypt "HELLO"')
     
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 3: # if less than 2 arguments given on command line
         print_usage()
-        sys.exit()
         
-    mode = sys.argv[1]
-    message = sys.argv[2]
-    
-    if mode == 'encrypt':
-        print(encrypt(message))
+    else:     
+        mode = sys.argv[1]
+        message = sys.argv[2]
         
-    elif mode == 'decrypt':
-        print(decrypt(message))
-    
-    else:
-        print_usage()
+        if mode == 'encrypt':
+            print(encrypt(message))
+            
+        elif mode == 'decrypt':
+            print(decrypt(message))
+        
+        else: # if given mode is neither encrypt nor decrypt
+            print_usage()
