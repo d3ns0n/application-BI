@@ -4,5 +4,6 @@ import caesar
 class TestStringMethods(unittest.TestCase):
     
     def test_rot(self):
-        self.assertEqual(caesar.rot('D'), 'A')
-        self.assertEqual(caesar.rot('C'), 'Z')
+        rotation_step = -3
+        self.assertEqual(caesar.rot(rotation_step, 'D'), 'A')
+        self.assertEqual(caesar.rot(rotation_step, 'C'), 'Z')
