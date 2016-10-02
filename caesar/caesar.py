@@ -27,8 +27,10 @@ def decrypt(message):
     return decrypted_message
     
 def print_usage():
-    print('Usage: caesar <command> <message>\n\n')
-    print('Example: caesar encrypt "HELLO"\n')
+    print('Usage: caesar.py <command> <message> \n')
+    print('Commands: decrypt, encrypt')
+    print('Message: string to en- / decrypt \n')
+    print('Example: caesar.py encrypt "HELLO"')
     
 if __name__ == '__main__':
     if len(sys.argv) != 3:
@@ -41,5 +43,8 @@ if __name__ == '__main__':
     if mode == 'encrypt':
         print(encrypt(message))
         
-    if mode == 'decrypt':
+    elif mode == 'decrypt':
         print(decrypt(message))
+    
+    else:
+        print_usage()
