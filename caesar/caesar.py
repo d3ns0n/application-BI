@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 from string import ascii_lowercase as lc, ascii_uppercase as uc
+import sys
 
 rotation_step_enc = -3 # rotation step for encrypting messages
 
@@ -20,5 +23,20 @@ def decrypt(message):
         decrypted_message += rot(-rotation_step_enc, letter)
     return decrypted_message
     
+def print_usage():
+    print('Usage: caesar <command> <message>\n\n')
+    print('Example: caesar encrypt "HELLO"\n')
     
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print_usage()
+        sys.exit()
+        
+    mode = sys.argv[1]
+    message = sys.argv[2]
     
+    if mode == 'encrypt':
+        print(encrypt(message))
+        
+    if mode == 'decrypt':
+        print(decrypt(message))
