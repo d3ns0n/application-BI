@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from string import ascii_lowercase as lc, ascii_uppercase as uc
 import sys
