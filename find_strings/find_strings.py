@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from string import ascii_uppercase as uc
 import sys
 
 
@@ -14,6 +15,22 @@ def permutate(string):
         rest = string[i:]
         for p in permutate(rest):
             result.append(first + p)
+    return result
+
+
+def remove_invalid_permutations(permutations):
+    """ Removes all invalid permutations. Invalid permutations are all permutations that contain values greater 26 or below 1
+    :param permutations: a list of permutations
+    :return: a list of valid permutations
+    """
+    result = []
+    for permutation in permutations:
+        has_invalid_permutations = False
+        for element in permutation:
+            if int(element) > len(uc) or int(element) <= 0:
+                has_invalid_permutations = True
+        if not has_invalid_permutations:
+            result.append(permutation)
     return result
 
 
