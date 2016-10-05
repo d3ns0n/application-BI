@@ -34,6 +34,19 @@ def remove_invalid_permutations(permutations):
     return result
 
 
+def encode_permutations(permutations):
+    """ Encodes permutations in characters
+    :param permutations: a list of permutations
+    :return: a list with encoded permutations"""
+    result = []
+    for permutation in permutations:
+        result_element = []
+        for element in permutation:
+            result_element.append(uc[int(element) - 1])
+        result.append(result_element)
+    return result
+
+
 def print_usage():
     print('Usage: find_strings.py <number> \n')
     print('Number: an integer to encode as character \n')
@@ -45,5 +58,8 @@ if __name__ == '__main__':
         print_usage()
     else:
         number = sys.argv[1]
-        for permutation in permutate(number):
+        permutations = permutate(number)
+        valid_permutations = remove_invalid_permutations(permutations)
+        encoded_permutations = encode_permutations(valid_permutations)
+        for permutation in encoded_permutations:
             print(permutation)

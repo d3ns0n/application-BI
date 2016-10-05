@@ -24,3 +24,9 @@ class TestStringMethods(unittest.TestCase):
             [['1234'], ['1', '234'], ['1', '2', '34'], ['1', '23', '4'],
              ['12', '34'], ['12', '3', '4'], ['123', '4'], ['1', '2', '3', '4']]),
             [['1', '23', '4'], ['12', '3', '4'], ['1', '2', '3', '4']])
+
+    def test_encode_permutations(self):
+        self.assertEqual(fs.encode_permutations([]), [])
+        self.assertEqual(fs.encode_permutations([['1']]), [['A']])
+        self.assertEqual(fs.encode_permutations([['12']]), [['L']])
+        self.assertEqual(fs.encode_permutations([['12'], ['1', '2']]), [['L'], ['A', 'B']])
