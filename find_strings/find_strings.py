@@ -48,4 +48,7 @@ if __name__ == '__main__':
         permutations = permutate(number, len(uc))
         encoded_permutations = encode_permutations(permutations)
         for permutation in encoded_permutations:
-            print(permutation)
+            elements = ''
+            for element in permutation:
+                elements += element
+            print(elements)
